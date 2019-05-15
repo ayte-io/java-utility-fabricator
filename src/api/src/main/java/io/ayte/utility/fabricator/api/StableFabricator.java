@@ -1,7 +1,7 @@
 package io.ayte.utility.fabricator.api;
 
 /**
- *Denotes a fabricator that always returns same value / throws equal
+ * Denotes a fabricator that always returns same value / throws equal
  * exceptions, even though that value  / exception may not be known
  * before first call.
  *

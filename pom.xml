@@ -11,9 +11,9 @@
 
     <groupId>io.ayte.utility.fabricator</groupId>
     <artifactId>parent</artifactId>
-    <version>0.1.0</version>
+    <version>0.1.1-SNAPSHOT</version>
     <name>Ayte :: Utility :: Fabricator</name>
-    <description>Fabricator, Supplier-alike interface that may throw</description>
+    <description>Fabricator - Supplier-alike interface that may throw</description>
 
     <packaging>pom</packaging>
 
