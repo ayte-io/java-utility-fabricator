@@ -18,7 +18,7 @@ public class SupplierFabricator<T, E extends Throwable> implements Fabricator<T,
         return delegate.get();
     }
 
-    public static <T, E extends Throwable> SupplierFabricator<T, E> create(@NonNull Supplier<? extends T> delegate) {
+    public static <T, E extends Throwable> Fabricator<T, E> create(@NonNull Supplier<? extends T> delegate) {
         return new SupplierFabricator<>(delegate);
     }
 }
