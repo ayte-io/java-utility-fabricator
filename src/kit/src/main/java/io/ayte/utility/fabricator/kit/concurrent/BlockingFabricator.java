@@ -17,9 +17,6 @@ public class BlockingFabricator<T, E extends Throwable> implements ThreadSafeFab
     }
 
     public static <T, E extends Throwable> ThreadSafeFabricator<T, E> create(Fabricator<T, E> delegate) {
-        if (delegate instanceof ThreadSafeFabricator) {
-            return ((ThreadSafeFabricator<T, E>) delegate);
-        }
         return new BlockingFabricator<>(delegate);
     }
 }

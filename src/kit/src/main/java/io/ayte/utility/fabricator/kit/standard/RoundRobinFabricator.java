@@ -35,7 +35,7 @@ public class RoundRobinFabricator<T, E extends Throwable> implements Fabricator<
         }
     }
 
-    public static <T, E extends Throwable> RoundRobinFabricator<T, E> create(@NonNull Iterable<? extends T> source) {
+    public static <T, E extends Throwable> Fabricator<T, E> create(@NonNull Iterable<? extends T> source) {
         return new RoundRobinFabricator<>(source);
     }
 }

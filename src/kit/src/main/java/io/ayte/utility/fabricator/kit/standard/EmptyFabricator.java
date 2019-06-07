@@ -1,5 +1,6 @@
 package io.ayte.utility.fabricator.kit.standard;
 
+import io.ayte.utility.fabricator.api.Fabricator;
 import io.ayte.utility.fabricator.api.StableFabricator;
 import io.ayte.utility.fabricator.api.ThreadSafeFabricator;
 import lombok.AccessLevel;
@@ -17,7 +18,7 @@ public class EmptyFabricator<T, E extends Throwable> implements StableFabricator
     }
 
     @SuppressWarnings("unchecked")
-    public static <T, E extends Throwable> EmptyFabricator<T, E> create() {
+    public static <T, E extends Throwable> Fabricator<T, E> create() {
         return INSTANCE;
     }
 }

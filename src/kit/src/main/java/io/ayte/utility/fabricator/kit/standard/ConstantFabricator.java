@@ -1,5 +1,6 @@
 package io.ayte.utility.fabricator.kit.standard;
 
+import io.ayte.utility.fabricator.api.Fabricator;
 import io.ayte.utility.fabricator.api.StableFabricator;
 import io.ayte.utility.fabricator.api.ThreadSafeFabricator;
 import lombok.AccessLevel;
@@ -16,7 +17,7 @@ public class ConstantFabricator<T, E extends Throwable> implements StableFabrica
         return value;
     }
 
-    public static <T, E extends Throwable> ConstantFabricator<T, E> create(T value) {
+    public static <T, E extends Throwable> Fabricator<T, E> create(T value) {
         return new ConstantFabricator<>(value);
     }
 }

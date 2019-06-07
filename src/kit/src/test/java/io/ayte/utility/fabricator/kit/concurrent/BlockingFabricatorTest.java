@@ -6,7 +6,6 @@ import org.junit.jupiter.api.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.instanceOf;
-import static org.hamcrest.Matchers.is;
 import static org.mockito.Mockito.mock;
 
 class BlockingFabricatorTest {
@@ -18,9 +17,9 @@ class BlockingFabricatorTest {
 
     @SuppressWarnings("unchecked")
     @Test
-    public void passesThreadSafeFabricatorThrough() {
+    public void wrapsThreadSafeFabricatorThrough() {
         val mock = mock(ThreadSafeFabricator.class);
         val sut = BlockingFabricator.create(mock);
-        assertThat(sut, is(mock));
+        assertThat(sut, instanceOf(BlockingFabricator.class));
     }
 }
