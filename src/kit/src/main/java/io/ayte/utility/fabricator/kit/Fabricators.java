@@ -3,6 +3,7 @@ package io.ayte.utility.fabricator.kit;
 import io.ayte.utility.fabricator.api.Fabricator;
 import io.ayte.utility.fabricator.api.ThreadSafeFabricator;
 import io.ayte.utility.fabricator.kit.concurrent.BlockingFabricator;
+import io.ayte.utility.fabricator.kit.delegate.OneOffFabricator;
 import io.ayte.utility.fabricator.kit.delegate.SupplierFabricator;
 import io.ayte.utility.fabricator.kit.standard.ConstantFabricator;
 import io.ayte.utility.fabricator.kit.standard.EmptyFabricator;
@@ -121,5 +122,21 @@ public class Fabricators {
             return (ThreadSafeFabricator<T, E>) fabricator;
         }
         return blocking(fabricator);
+    }
+
+    /**
+     * Creates fabricator wrapper that calls underlying fabricator only
+     * once and caches the result. Please note that in case of error
+     * stack trace will also be cached, thus such fabricator should not
+     * be called from different places to prevent debug hell.
+     *
+     * @param fabricator Fabricator to wrap.
+     * @param <T> Fabricator return type.
+     * @param <E> Fabricator error type.
+     * @return Wrapped fabricator.
+     * @since 0.1.1
+     */
+    public static <T, E extends Throwable> ThreadSafeFabricator<T, E> oneOff(@NonNull Fabricator<T, E> fabricator) {
+        return OneOffFabricator.create(fabricator);
     }
 }
