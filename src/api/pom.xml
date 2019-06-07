@@ -13,4 +13,31 @@
     <artifactId>api</artifactId>
     <name>Ayte :: Utility :: Fabricator :: API</name>
     <description>Fabricator interface, a java.util.function.Supplier that may throw</description>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.moditect</groupId>
+                <artifactId>moditect-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>add-module-info</goal>
+                        </goals>
+                        <phase>package</phase>
+                        <configuration>
+                            <jvmVersion>9</jvmVersion>
+                            <module>
+                                <moduleInfoSource>
+                                    module io.ayte.utility.fabricator.api {
+                                        exports io.ayte.utility.fabricator.api;
+                                    }
+                                </moduleInfoSource>
+                            </module>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 </project>
